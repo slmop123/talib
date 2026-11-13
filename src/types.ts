@@ -45,3 +45,38 @@ export interface GamificationLevel {
   badge: string;
   unlockedPerks: string[];
 }
+
+export type PitchSlideType =
+  | 'cover'
+  | 'problem'
+  | 'market'
+  | 'solution'
+  | 'live-mockup'
+  | 'strategy'
+  | 'financial'
+  | 'impact'
+  | 'vision'
+  | 'conclusion';
+
+export interface PitchBullet {
+  label: string;
+  text: string;
+}
+
+export interface PitchSlide {
+  id: string;
+  num: string;
+  slideType: PitchSlideType;
+  kicker: string;
+  title: string;
+  subtitle: string;
+  allocatedTimeLabel: string;
+  allocatedSeconds: number;
+  bullets: PitchBullet[];
+  keyMetric?: {
+    value: string;
+    label: string;
+    sub?: string;
+  };
+  speakerNote: string;
+}

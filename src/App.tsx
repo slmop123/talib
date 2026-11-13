@@ -13,7 +13,9 @@ import { GamificationEngine } from './components/GamificationEngine';
 import { PricingCalculator } from './components/PricingCalculator';
 import { SafeguardsArchitecture } from './components/SafeguardsArchitecture';
 import { PresentationModeModal } from './components/PresentationModeModal';
+import { PitchDeckViewer } from './components/PitchDeckViewer';
 import { ExecutiveSummaryModal } from './components/ExecutiveSummaryModal';
+import { FloatingParticles } from './components/FloatingParticles';
 import { Sparkles, Crown, ArrowUp, FileText, Play } from 'lucide-react';
 import { PROJECT_METADATA } from './data/presentationData';
 
@@ -49,7 +51,7 @@ export default function App() {
 
   // Section observer for scroll spy
   useEffect(() => {
-    const sections = ['hero', 'vision', 'services', 'simulators', 'gamification', 'pricing', 'safeguards'];
+    const sections = ['hero', 'pitch-deck', 'vision', 'services', 'simulators', 'gamification', 'pricing', 'safeguards'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 250;
       for (const sectionId of sections) {
@@ -96,13 +98,16 @@ export default function App() {
     <div className="min-h-screen bg-[#071326] text-[#F3EDE2] relative selection:bg-[#38BDF8]/30 selection:text-white">
       {/* Liquid Caustic Background Wallpaper with Smooth Blend */}
       <div 
-        className="fixed inset-0 pointer-events-none opacity-20 -z-20 bg-cover bg-center mix-blend-screen transition-opacity duration-1000"
+        className="fixed inset-0 pointer-events-none opacity-25 -z-20 bg-cover bg-center mix-blend-screen transition-opacity duration-1000"
         style={{ backgroundImage: `url('/src/assets/images/liquid_glass_caustics_1793794960731.jpg')` }}
       />
 
+      {/* Visible Flying Background Particles */}
+      <FloatingParticles density={75} className="fixed inset-0 pointer-events-none z-0 opacity-90" />
+
       {/* Floating Ambient Glow Orbs */}
-      <div className="fixed top-1/4 left-10 w-96 h-96 bg-[#0284C7]/15 rounded-full blur-[120px] pointer-events-none -z-10 animate-liquid-float" />
-      <div className="fixed bottom-1/4 right-80 w-96 h-96 bg-[#D4B996]/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="fixed top-1/4 left-10 w-96 h-96 bg-[#0284C7]/15 rounded-full blur-[120px] pointer-events-none -z-10 liquid-caustic-orb" />
+      <div className="fixed bottom-1/4 right-80 w-96 h-96 bg-[#D4B996]/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-liquid-float" />
 
       {/* THE RIGHT NAVBAR (الناف بار في اليمين ليس الفوق) */}
       <RightNavbar
@@ -120,23 +125,23 @@ export default function App() {
           {/* Top Subtle Announcement Ribbon (Not a navbar, a presentation banner) */}
           <header className="py-2.5 px-4 md:px-8 border-b border-[#F3EDE2]/10 bg-[#071326]/70 backdrop-blur-md flex items-center justify-between text-xs text-[#A2B4C7]">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-semibold text-[#F3EDE2]">عرض فكرة المشروع:</span>
-              <span className="hidden sm:inline">منظومة الذكاء الاصطناعي للمناهج المغربية</span>
+              <Crown className="w-3.5 h-3.5 text-[#D4B996]" />
+              <span className="font-semibold text-[#F3EDE2]">عرض ريادة الأعمال (7 دقائق):</span>
+              <span className="hidden sm:inline">طالب ذكي (TalibAI) · 10 شرائح للجنة التحكيم</span>
             </div>
 
             <div className="flex items-center gap-3">
               <button
                 onClick={() => { playInteractionSound(); setIsPitchModeOpen(true); }}
-                className="text-[11px] text-[#38BDF8] hover:text-white font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                className="text-[11px] text-[#38BDF8] hover:text-white font-bold flex items-center gap-1 transition-colors cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Play className="w-3 h-3 text-[#38BDF8]" />
-                <span>عرض السلايدات</span>
+                <span>تشغيل العرض التقديمي (10 شرائح)</span>
               </button>
               <span className="text-[#F3EDE2]/20">|</span>
               <button
                 onClick={() => { playInteractionSound(); setIsSummaryOpen(true); }}
-                className="text-[11px] text-[#D4B996] hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
+                className="text-[11px] text-[#D4B996] hover:text-white flex items-center gap-1 transition-colors cursor-pointer whitespace-nowrap shrink-0"
               >
                 <FileText className="w-3 h-3 text-[#D4B996]" />
                 <span>الملخص التنفيذي</span>
@@ -150,6 +155,33 @@ export default function App() {
             onTrySimulator={() => handleNavigate('simulators')}
             onOpenPitch={() => { playInteractionSound(); setIsPitchModeOpen(true); }}
           />
+
+          {/* 1.5 Embedded 10-Slide Startup Pitch Deck (7-Minute Jury Presentation) */}
+          <section id="pitch-deck" className="py-12 px-4 md:px-8 max-w-6xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-8 space-y-2.5">
+              <div className="flex items-center justify-center gap-2 text-xs font-semibold text-[#38BDF8]">
+                <span>عرض برنامج ريادة الأعمال</span>
+                <span aria-hidden="true">·</span>
+                <span className="text-[#D4B996]">10 شرائح</span>
+                <span aria-hidden="true">·</span>
+                <span className="font-mono">7:00 دقائق</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F3EDE2] text-balance">
+                العرض التقديمي الموجه للجنة التحكيم (Pitch Deck)
+              </h2>
+              <p className="text-xs sm:text-sm text-[#A2B4C7] leading-relaxed">
+                تنقل بين الشرائح العشر مع مؤقت 7 دقائق وتجربة حية شاملة في الشريحة الخامسة، وصولاً إلى الفيلم الترويجي في الشريحة العاشرة.
+              </p>
+            </div>
+
+            <div className="liquid-glass-card rounded-3xl border border-[#38BDF8]/25 shadow-2xl overflow-hidden">
+              <PitchDeckViewer
+                isFullscreenModal={false}
+                onRequestFullscreen={() => { playInteractionSound(); setIsPitchModeOpen(true); }}
+                onPlaySound={playInteractionSound}
+              />
+            </div>
+          </section>
 
           {/* 2. Vision & Royal Orientation Section */}
           <VisionSection />

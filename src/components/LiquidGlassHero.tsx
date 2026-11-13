@@ -33,11 +33,10 @@ export const LiquidGlassHero: React.FC<LiquidGlassHeroProps> = ({
         <div className="lg:col-span-7 space-y-6">
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-xs font-medium text-[#38BDF8]">
-              <span className="w-2 h-2 rounded-full bg-[#38BDF8]" />
-              <span>عرض تقديمي تفاعلي متكامل لفكرة المشروع (Pitch & Architecture)</span>
+              <span>عرض تقديمي تفاعلي متكامل · 10 شرائح للجنة التحكيم (7 دقائق)</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F3EDE2] tracking-tight leading-[1.25]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F3EDE2] tracking-tight leading-[1.25] text-balance">
               منصة <span className="bg-gradient-to-r from-[#38BDF8] via-[#F3EDE2] to-[#D4B996] bg-clip-text text-transparent">طالب ذكي</span> (TalibAI)
               <br />
               <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4B996] block mt-1">
@@ -53,19 +52,19 @@ export const LiquidGlassHero: React.FC<LiquidGlassHeroProps> = ({
           {/* Quick CTA Actions */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
-              onClick={onTrySimulator}
-              className="py-3 px-6 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1D4ED8] hover:from-[#0369A1] hover:to-[#1E40AF] text-white text-sm font-bold shadow-lg shadow-[#0284C7]/30 hover:shadow-[#0284C7]/50 border border-white/20 transition-all duration-200 flex items-center gap-2 group cursor-pointer"
+              onClick={onOpenPitch}
+              className="py-3 px-6 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1D4ED8] hover:from-[#0369A1] hover:to-[#1E40AF] text-white text-sm font-bold shadow-lg shadow-[#0284C7]/30 hover:shadow-[#0284C7]/50 border border-white/20 transition-all duration-200 flex items-center gap-2 group cursor-pointer whitespace-nowrap shrink-0"
             >
-              <Sparkles className="w-4 h-4 text-[#F3EDE2] group-hover:rotate-12 transition-transform" />
-              <span>تجربة المختبر والمحاكاة الحية</span>
+              <Play className="w-4 h-4 text-[#F3EDE2] group-hover:scale-110 transition-transform" />
+              <span>تشغيل عرض 10 شرائح (7 دقائق)</span>
             </button>
 
             <button
-              onClick={onOpenPitch}
-              className="py-3 px-5 rounded-xl liquid-glass-card hover:bg-white/10 text-[#F3EDE2] text-sm font-semibold border border-[#D4B996]/30 hover:border-[#D4B996]/60 transition-all duration-200 flex items-center gap-2 cursor-pointer"
+              onClick={onTrySimulator}
+              className="py-3 px-5 rounded-xl liquid-glass-card hover:bg-white/10 text-[#F3EDE2] text-sm font-semibold border border-[#D4B996]/30 hover:border-[#D4B996]/60 transition-all duration-200 flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0"
             >
-              <Play className="w-4 h-4 text-[#D4B996]" />
-              <span>عرض السلايدات (Pitch Deck)</span>
+              <Sparkles className="w-4 h-4 text-[#D4B996]" />
+              <span>تجربة المختبر الحية</span>
             </button>
 
             <button

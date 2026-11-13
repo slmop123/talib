@@ -38,6 +38,7 @@ export const RightNavbar: React.FC<RightNavbarProps> = ({
 
   const navLinks = [
     { id: 'hero', label: 'الافتتاحية والرؤية', icon: Crown, badge: 'المغرب' },
+    { id: 'pitch-deck', label: 'عرض لجنة التحكيم', icon: Play, badge: '10 شرائح' },
     { id: 'services', label: 'أعمدة الخدمات', icon: Layers, badge: '4 ركائز' },
     { id: 'simulators', label: 'المختبر التفاعلي', icon: Cpu, badge: 'تجربة حية' },
     { id: 'gamification', label: 'التحفيز الإدماني', icon: Flame, badge: 'XP & Streaks' },
@@ -119,7 +120,7 @@ export const RightNavbar: React.FC<RightNavbarProps> = ({
                 <Play className="w-3.5 h-3.5 text-[#38BDF8] group-hover:scale-110 transition-transform" />
                 <span>عرض السلايدات (Pitch Deck)</span>
               </span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#38BDF8]/20 text-[#38BDF8]">5 شرائح</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#38BDF8]/20 text-[#38BDF8] whitespace-nowrap shrink-0">10 شرائح · 7د</span>
             </button>
 
             <button
